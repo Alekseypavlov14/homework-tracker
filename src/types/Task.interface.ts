@@ -1,6 +1,8 @@
 export interface Task {
   name: string
-  deadline: Date
-  isRequired: boolean,
+  deadline: number
+  isRequired: boolean
+  done: boolean
+  courseId: number
   id: number
 }
