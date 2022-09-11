@@ -6,7 +6,9 @@ interface HeaderProps {}
 export const Header: FC<HeaderProps> = () => {
   return (
     <div className={styles.Header}>
-      <div className={styles.Title}>HomeWork Tracker</div>
+      <div className={styles.Title}>
+        HomeWork Tracker
+      </div>
     </div>
   )
 }
