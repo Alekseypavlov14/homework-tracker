@@ -1,7 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:regular,600,700);
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
 }
 
 html,
