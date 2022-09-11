@@ -26,7 +26,7 @@ export const NewCourse: FC<NewCourseProps> = () => {
   const AddNewCourse = () => {
     if (courseName.length === 0) return
 
-    const newColorId = Math.ceil(Math.random() * (colors.length - 1))
+    const newColorId = Math.ceil(Math.random() * (colors.length - 1) + 1)
 
     dispatch(addCourse({
       name: courseName,
