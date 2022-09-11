@@ -1,5 +1,8 @@
 import { FC } from 'react'
+import { useDispatch } from 'react-redux'
+import { toggleTask } from '../../store/slices/courses/coursesSlice'
 import { Task as TaskType } from './../../types/Task.interface'
+import cn from 'classnames'
 import styles from './Task.module.css'
 
 interface TaskProps extends TaskType {}
@@ -7,13 +10,44 @@ interface TaskProps extends TaskType {}
 export const Task: FC<TaskProps> = ({
   name,
   deadline,
-  isRequired,
+  done,
+  courseId,
   id
 }) => {
+  const dispatch = useDispatch()
+
+  function formalizeDate(date: number) {
+    const currentDate = new Date(date)
+
+    const day = currentDate.getDate()
+    let dayView = String(day)
+    if (day < 10) dayView = `0${day}`
+
+    const month = currentDate.getMonth() + 1
+    let monthView = String(month)
+    if (month < 10) monthView = `0${month}`
+
+    const year = currentDate.getFullYear()
+    let yearView = String(year)
+
+    return `${dayView}.${monthView}.${yearView}`
+  }
+
+  const toggleHandler = () => {
+    dispatch(toggleTask({ courseId, id }))
+  }
+
   return (
-    <div className={styles.Task}>
-      <div className={styles.TaskName}>{name}</div>
-      <div className={styles.TaskDeadline}>{deadline.getTime()}</div>
+    <div className={cn(styles.Task, done && styles.Done)}>
+      <div className={styles.TaskData}>
+        <div className={styles.TaskName}>{name}</div>
+        <div className={styles.TaskDeadline}>{formalizeDate(deadline)}</div>
+      </div>
+      <div className={styles.TaskButtonBlock}>
+        <button className={styles.TaskButton} onClick={toggleHandler}>
+          done
+        </button>
+      </div>
     </div>
   )
 }

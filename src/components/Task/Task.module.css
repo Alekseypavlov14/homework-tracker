@@ -1,0 +1,32 @@
+.Task {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Done {
+  background-color: #efefef;
+}
+
+.TaskName {
+  font-size: 18px;
+}
+
+.Done .TaskName {
+  text-decoration: line-through;
+}
+
+.TaskButton {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.TaskButton:active {
+  background-color: #ccc;
+}
