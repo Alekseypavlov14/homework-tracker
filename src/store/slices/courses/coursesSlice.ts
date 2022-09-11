@@ -2,7 +2,9 @@ import { AppState } from '../../store'
 import { createSlice } from "@reduxjs/toolkit"
 import { Course } from "../../../types/Course.interface"
 
-const initialState: Course[] = []
+const savedCourses: Course[] = JSON.parse(localStorage.getItem('courses') || '[]')
+
+const initialState: Course[] = savedCourses
 
 const coursesSlice = createSlice({
   name: 'courses',
