@@ -1,6 +1,7 @@
 import { FC, useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
+import { Task } from '../../components/Task/Task'
 import { colorDefaultSelector, colorsSelector } from '../../store/slices/colors/colorsSlice'
 import { coursesSelector } from '../../store/slices/courses/coursesSlice'
 import { Course } from '../../types/Course.interface'
@@ -34,6 +35,22 @@ export const CoursePage: FC<CoursePageProps> = () => {
     <div className={styles.CoursePage} ref={coursePageRef}>
       <div className={styles.CourseHeader}>
         {course?.name}
+      </div>
+
+      <div className={styles.Tasks}>
+        {course?.tasks.map(task => (
+          <div className={styles.TaskContainer} key={task.id}>
+            <Task 
+              name={task.name} 
+              deadline={task.deadline}
+              isRequired={task.isRequired}
+              id={task.id}
+              done={task.done}
+              courseId={task.courseId}
+              key={task.id}
+            />
+          </div>
+        ))}
       </div>
     </div>
   )

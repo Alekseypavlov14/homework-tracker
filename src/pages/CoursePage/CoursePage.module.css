@@ -12,3 +12,13 @@
   color: #fff;
   border-radius: 15px;
 }
+
+.Tasks {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.TaskContainer {
+  width: 100%;
+  padding: 5px 0px;
+}
