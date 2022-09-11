@@ -8,11 +8,14 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  all: [],
-  default: {
-    value: '#000',
-    id: 0
-  }
+  all: [
+    { value: '#005eff', id: 1 },
+    { value: '#44944A', id: 2 },
+    { value: '#FF2400', id: 3 },
+    { value: '#8b00ff', id: 4 },
+    { value: '#FFD700', id: 5 },
+  ],
+  default: { value: '#000', id: 0 }
 }
 
 const colorsSlice = createSlice({

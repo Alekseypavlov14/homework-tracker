@@ -2,6 +2,12 @@ import { AppState } from '../../store'
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { Course } from "../../../types/Course.interface"
 
+interface AddCourseTemplate {
+  name: string
+  zoomLink: string | null
+  colorId: number
+}
+
 interface TaskCreateTemplate {
   name: string
   deadline: number
@@ -50,10 +56,23 @@ const coursesSlice = createSlice({
       if (task) task.done = !task.done
 
       saveToLocalStorage(state)
+    },
+    addCourse(state, action: PayloadAction<AddCourseTemplate>) {
+      const course = action.payload
+
+      state.push({
+        name: course.name,
+        colorId: course.colorId,
+        zoomLink: course.zoomLink,
+        id: state.length + 1,
+        tasks: []
+      })
+
+      saveToLocalStorage(state)
     }
   }
 })
 
 export const coursesReducer = coursesSlice.reducer
-export const { createTask, toggleTask } = coursesSlice.actions
+export const { createTask, toggleTask, addCourse } = coursesSlice.actions
 export const coursesSelector = (state: AppState) => state.courses

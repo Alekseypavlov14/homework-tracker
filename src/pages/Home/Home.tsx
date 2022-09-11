@@ -15,6 +15,8 @@ export const Home: FC<HomeProps> = () => {
   const openCoursePage = (courseId: number) => {
     return () => navigate(`/courses/${courseId}`)
   }
+
+  const openNewCoursePage = () => navigate('/courses/new')
   
   return (
     <div className={styles.Home}>
@@ -35,7 +37,12 @@ export const Home: FC<HomeProps> = () => {
         ))}
       </div>
 
-      <button className={styles.AddCourseButton}>+</button>
+      <button 
+        className={styles.AddCourseButton}
+        onClick={openNewCoursePage}
+      >
+        +
+      </button>
     </div>
   )
 }
