@@ -24,6 +24,8 @@ export const Home: FC<HomeProps> = () => {
           </div>
         ))}
       </div>
+
+      <button className={styles.AddCourseButton}>+</button>
     </div>
   )
 }
