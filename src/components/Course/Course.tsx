@@ -12,16 +12,11 @@ export const Course: FC<CourseProps> = ({ name, colorId }) => {
   const courseRef = useRef<HTMLDivElement>(null)
   const colors = useSelector(colorsSelector)
   const defaultColor = useSelector(colorDefaultSelector)
-
-  function getColorValue(colorId: number) {
-    const color = colors.find(color => color.id === colorId) || defaultColor
-    return color.value
-  }
-
+  
   useEffect(() => {
-    courseRef.current?.style.setProperty('--color', getColorValue(colorId))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [colorId])
+    const color = colors.find(color => color.id === colorId) || defaultColor
+    courseRef.current?.style.setProperty('--color', color.value)
+  }, [colors, defaultColor, colorId])
 
   return (
     <div className={styles.Course} ref={courseRef}>

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router"
 import { Home } from "./pages/Home/Home"
+import { CoursePage } from "./pages/CoursePage/CoursePage"
 import './App.css'
 
 export function App() {
@@ -7,7 +8,7 @@ export function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/:id' element={<div />} />
+        <Route path='/courses/:id' element={<CoursePage />} />
       </Routes>
     </div>
   )
