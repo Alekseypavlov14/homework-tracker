@@ -1,0 +1,11 @@
+.Course {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--color);
+  border-radius: 15px;
+}
+
+.CourseName {
+  font-size: 24px;
+  color: #fff;
+}
