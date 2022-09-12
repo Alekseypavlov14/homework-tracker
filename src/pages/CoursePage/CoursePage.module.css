@@ -8,9 +8,22 @@
   width: 100%;
   padding: 30px 20px;
   background-color: var(--color);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CourseName {
   font-size: 24px;
   color: #fff;
-  border-radius: 15px;
+}
+
+.CourseSettings {
+  display: block;
+  padding: 0 5px;
+  color: #fff;
+  transform: scale(1.5);
 }
 
 .Tasks {

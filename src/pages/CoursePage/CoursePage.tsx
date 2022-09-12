@@ -1,6 +1,6 @@
 import { FC, useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { Task } from '../../components/Task/Task'
 import { TaskFactory } from '../../components/TaskFactory/TaskFactory'
 import { colorDefaultSelector, colorsSelector } from '../../store/slices/colors/colorsSlice'
@@ -8,6 +8,9 @@ import { coursesSelector } from '../../store/slices/courses/coursesSlice'
 import { Course } from '../../types/Course.interface'
 import { Task as TaskType } from '../../types/Task.interface'
 import { getColorById } from '../../utils/getColorById/getColorById'
+import { getCourseById } from '../../utils/getCourseById/getCourseById'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import styles from './CoursePage.module.css'
 
 interface CoursePageProps {}
@@ -24,8 +27,8 @@ export const CoursePage: FC<CoursePageProps> = () => {
   const defaultColor = useSelector(colorDefaultSelector)
 
   useEffect(() => {
-    const course = courses.find(course => course.id === Number(id))
-    if (course === undefined) return navigate('/')
+    const course = getCourseById(courses, Number(id))
+    if (!course) return navigate('/')
 
     setCourse(course)
 
@@ -46,7 +49,12 @@ export const CoursePage: FC<CoursePageProps> = () => {
   return (
     <div className={styles.CoursePage} ref={coursePageRef}>
       <div className={styles.CourseHeader}>
-        {course?.name}
+        <div className={styles.CourseName}>
+          {course?.name}
+        </div>
+        <Link className={styles.CourseSettings} to='settings'>
+          <FontAwesomeIcon icon={faEllipsisV} />
+        </Link>
       </div>
 
       <div className={styles.Tasks}>

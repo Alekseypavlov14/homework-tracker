@@ -1,0 +1,44 @@
+.CourseSettings {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+.CourseHeader {
+  width: 100%;
+  padding: 30px 20px;
+  background-color: var(--color);
+  border-radius: 15px;
+  font-size: 24px;
+  color: #fff;
+}
+
+.CourseActions {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.CourseAction {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CourseActionName {
+  font-size: 20px;
+  color: red;
+}
+
+.CourseActionButton {
+  padding: 5px 10px;
+  background-color: red;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px;
+}

@@ -4,4 +4,7 @@ export namespace Course {
     zoomLink: string | null
     colorId: number
   }
+  export interface Delete {
+    id: number
+  }
 }

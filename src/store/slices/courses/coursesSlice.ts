@@ -50,7 +50,6 @@ const coursesSlice = createSlice({
       course.tasks = course.tasks.filter(task => task.id !== id)
 
       saveToLocalStorage(state)
-      console.log(state)
     },
     createCourse(state, action: PayloadAction<CourseActions.Create>) {
       const course = action.payload
@@ -64,6 +63,16 @@ const coursesSlice = createSlice({
       })
 
       saveToLocalStorage(state)
+    },
+    deleteCourse(state, action: PayloadAction<CourseActions.Delete>) {
+      const { id } = action.payload
+
+      const course = state.find(course => course.id === id)
+      if (!course) return
+      
+      state.splice(state.indexOf(course), 1)
+
+      saveToLocalStorage(state)
     }
   }
 })
@@ -73,6 +82,7 @@ export const {
   createTask, 
   toggleTask, 
   deleteTask, 
-  createCourse 
+  createCourse,
+  deleteCourse 
 } = coursesSlice.actions
 export const coursesSelector = (state: AppState) => state.courses

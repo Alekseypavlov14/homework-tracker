@@ -31,7 +31,10 @@ export const Task: FC<TaskProps> = ({
   const buttonIcon = done ? faXmark : faCheck
 
   return (
-    <div className={cn(styles.Task, done && styles.Done)}>
+    <div 
+      className={cn(styles.Task, done && styles.Done)}
+      onClick={toggleHandler}
+    >
       <div className={styles.TaskData}>
         <div className={styles.TaskName}>
           {name}
@@ -43,8 +46,8 @@ export const Task: FC<TaskProps> = ({
 
       <div className={styles.TaskButtonBlock}>
         <button 
-          className={styles.TaskButton} 
-          onClick={toggleHandler}
+          className={styles.TaskButton}
+          // onClick={toggleHandler}
         >
           <FontAwesomeIcon icon={buttonIcon} />
         </button>
