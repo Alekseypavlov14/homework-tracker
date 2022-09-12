@@ -30,8 +30,20 @@
   outline: none;
 }
 
+.TaskNameInput {
+  border-color: var(--color);
+}
+
+.TaskDeadlineInput {
+  border-color: var(--color);
+  color: var(--color);
+}
+
 .TaskButton {
   flex: 0 0 60px;
+  background-color: var(--color);
+  color: #fff;
+  border: none;
 }
 
 .TaskButton:active {

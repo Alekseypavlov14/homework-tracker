@@ -23,6 +23,10 @@ export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
       isRequired: true,
       courseId: courseId
     }))
+
+    // default state
+    setTaskName('')
+    setTaskDeadline(Date.now())
   }
 
   function updateName(e: ChangeEvent<HTMLInputElement>) {

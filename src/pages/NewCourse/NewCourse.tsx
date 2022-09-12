@@ -15,15 +15,15 @@ export const NewCourse: FC<NewCourseProps> = () => {
   const navigate = useNavigate()
   const colors = useSelector(colorsSelector)
 
-  const courseNameChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  function updateCourseName(e: ChangeEvent<HTMLInputElement>) {
     setCourseName(e.target.value)
   }
 
-  const zoomLinkChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  function updateZoomLink(e: ChangeEvent<HTMLInputElement>) {
     setZoomLink(e.target.value)
   }
 
-  const AddNewCourse = () => {
+  function AddNewCourse() {
     if (courseName.length === 0) return
 
     const newColorId = Math.ceil(Math.random() * (colors.length - 1) + 1)
@@ -47,20 +47,14 @@ export const NewCourse: FC<NewCourseProps> = () => {
             <div className={styles.FormSectionName}>
               The name of the course
             </div>
-            <input 
-              onChange={courseNameChangeHandler}
-              type='text' 
-            />
+            <input onChange={updateCourseName} />
           </div>
 
           <div className={styles.FormSection}>
             <div className={styles.FormSectionName}>
               Zoom Link
             </div>
-            <input 
-              onChange={zoomLinkChangeHandler}
-              type='text' 
-            />
+            <input onChange={updateZoomLink} />
           </div>
         </form>
 

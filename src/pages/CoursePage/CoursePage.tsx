@@ -40,7 +40,10 @@ export const CoursePage: FC<CoursePageProps> = () => {
 
       <div className={styles.Tasks}>
         {course?.tasks.map(task => (
-          <div className={styles.TaskContainer} key={task.id}>
+          <div 
+            className={styles.TaskContainer}
+            key={task.id}
+          >
             <Task 
               name={task.name} 
               deadline={task.deadline}
