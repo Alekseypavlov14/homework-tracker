@@ -54,11 +54,18 @@ const coursesSlice = createSlice({
     createCourse(state, action: PayloadAction<CourseActions.Create>) {
       const course = action.payload
 
-      state.push({
+      const ids = state.map(course => course.id)
+
+      let max = 0
+      for (let i = 0; i < ids.length; i++) {
+        if (ids[i] > max) max = ids[i]
+      }
+
+      state.unshift({
         name: course.name,
         colorId: course.colorId,
         zoomLink: course.zoomLink,
-        id: state.length + 1,
+        id: max + 1,
         tasks: []
       })
 
@@ -69,7 +76,7 @@ const coursesSlice = createSlice({
 
       const course = state.find(course => course.id === id)
       if (!course) return
-      
+
       state.splice(state.indexOf(course), 1)
 
       saveToLocalStorage(state)
