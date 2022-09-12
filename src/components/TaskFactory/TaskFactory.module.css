@@ -1,0 +1,39 @@
+.TaskFactory {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border: 1px solid #ccc;
+  background-color: #efefef;
+  border-radius: 15px;
+}
+
+.TaskName {
+  flex: 1 1 50%;
+}
+
+.TaskDeadline {
+  flex: 1 1 auto;
+}
+
+.TaskNameInput, 
+.TaskDeadlineInput,
+.TaskButton {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  outline: none;
+}
+
+.TaskButton {
+  flex: 0 0 60px;
+}
+
+.TaskButton:active {
+  background-color: #ccc;
+}

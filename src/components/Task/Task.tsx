@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { useDispatch } from 'react-redux'
 import { toggleTask } from '../../store/slices/courses/coursesSlice'
 import { Task as TaskType } from './../../types/Task.interface'
+import { formatDate } from '../../utils/formatDate/formatDate'
 import cn from 'classnames'
 import styles from './Task.module.css'
 
@@ -17,20 +18,8 @@ export const Task: FC<TaskProps> = ({
   const dispatch = useDispatch()
 
   function formalizeDate(date: number) {
-    const currentDate = new Date(date)
-
-    const day = currentDate.getDate()
-    let dayView = String(day)
-    if (day < 10) dayView = `0${day}`
-
-    const month = currentDate.getMonth() + 1
-    let monthView = String(month)
-    if (month < 10) monthView = `0${month}`
-
-    const year = currentDate.getFullYear()
-    let yearView = String(year)
-
-    return `${dayView}.${monthView}.${yearView}`
+    const { day, month, year } = formatDate(date)
+    return `${day}.${month}.${year}`
   }
 
   const toggleHandler = () => {

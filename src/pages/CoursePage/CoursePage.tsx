@@ -2,6 +2,7 @@ import { FC, useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Task } from '../../components/Task/Task'
+import { TaskFactory } from '../../components/TaskFactory/TaskFactory'
 import { colorDefaultSelector, colorsSelector } from '../../store/slices/colors/colorsSlice'
 import { coursesSelector } from '../../store/slices/courses/coursesSlice'
 import { Course } from '../../types/Course.interface'
@@ -51,6 +52,10 @@ export const CoursePage: FC<CoursePageProps> = () => {
             />
           </div>
         ))}
+      </div>
+
+      <div className={styles.NewTask}>
+        <TaskFactory courseId={course?.id!} />
       </div>
     </div>
   )
