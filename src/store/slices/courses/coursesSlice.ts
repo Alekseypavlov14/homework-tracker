@@ -1,24 +1,8 @@
 import { AppState } from '../../store'
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { Course } from "../../../types/Course.interface"
-
-interface AddCourseTemplate {
-  name: string
-  zoomLink: string | null
-  colorId: number
-}
-
-interface TaskCreateTemplate {
-  name: string
-  deadline: number
-  isRequired: boolean,
-  courseId: number
-}
-
-interface TaskToggleTemplate {
-  courseId: number
-  id: number
-}
+import { Task } from './Task.Actions'
+import { Course as CourseActions } from './Course.Actions' 
 
 function saveToLocalStorage(state: Course[]) {
   localStorage.setItem('courses', JSON.stringify(state))
@@ -32,7 +16,7 @@ const coursesSlice = createSlice({
   name: 'courses',
   initialState,
   reducers: {
-    createTask(state, action: PayloadAction<TaskCreateTemplate>) {
+    createTask(state, action: PayloadAction<Task.Create>) {
       const newTaskTemplate = action.payload
       const course = state.find(course => course.id === newTaskTemplate.courseId)
 
@@ -47,7 +31,7 @@ const coursesSlice = createSlice({
 
       saveToLocalStorage(state)
     },
-    toggleTask(state, action: PayloadAction<TaskToggleTemplate>) {
+    toggleTask(state, action: PayloadAction<Task.Toggle>) {
       const {courseId, id} = action.payload
 
       const course = state.find(course => course.id === courseId)
@@ -57,7 +41,15 @@ const coursesSlice = createSlice({
 
       saveToLocalStorage(state)
     },
-    addCourse(state, action: PayloadAction<AddCourseTemplate>) {
+    deleteTask(state, action: PayloadAction<Task.Delete>) {
+      const { courseId, id } = action.payload
+
+      const course = state.find(course => course.id === courseId)
+      const task = course?.tasks.find(task => task.id === id)
+
+      
+    },
+    createCourse(state, action: PayloadAction<CourseActions.Create>) {
       const course = action.payload
 
       state.push({
@@ -74,5 +66,5 @@ const coursesSlice = createSlice({
 })
 
 export const coursesReducer = coursesSlice.reducer
-export const { createTask, toggleTask, addCourse } = coursesSlice.actions
+export const { createTask, toggleTask, createCourse } = coursesSlice.actions
 export const coursesSelector = (state: AppState) => state.courses

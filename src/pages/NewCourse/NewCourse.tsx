@@ -2,7 +2,7 @@ import { FC, useState, ChangeEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { colorsSelector } from '../../store/slices/colors/colorsSlice'
-import { addCourse } from '../../store/slices/courses/coursesSlice'
+import { createCourse } from '../../store/slices/courses/coursesSlice'
 import styles from './NewCourse.module.css'
 
 interface NewCourseProps {}
@@ -28,7 +28,7 @@ export const NewCourse: FC<NewCourseProps> = () => {
 
     const newColorId = Math.ceil(Math.random() * (colors.length - 1) + 1)
 
-    dispatch(addCourse({
+    dispatch(createCourse({
       name: courseName,
       zoomLink: zoomLink,
       colorId: newColorId
