@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Course } from '../../components/Course/Course'
 import { Header } from '../../components/Header/Header'
 import { coursesSelector } from '../../store/slices/courses/coursesSlice'
@@ -23,6 +23,14 @@ export const Home: FC<HomeProps> = () => {
       <Header />
 
       <div className={styles.Courses}>
+        <div className={styles.Course}>
+          <div className={styles.TaskListLinkBlock}>
+            <Link className={styles.TaskListLink} to='/tasks'>
+              All the tasks
+            </Link>
+          </div>
+        </div>
+
         {courses.map(course => (
           <div 
             className={styles.Course} 
