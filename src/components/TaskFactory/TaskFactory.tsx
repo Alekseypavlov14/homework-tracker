@@ -66,7 +66,7 @@ export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
         className={styles.TaskButton}
         onClick={addTask}
       >
-        Save
+        +
       </button>
     </div>
   )
