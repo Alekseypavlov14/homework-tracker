@@ -36,7 +36,7 @@ const coursesSlice = createSlice({
       const newTaskTemplate = action.payload
       const course = state.find(course => course.id === newTaskTemplate.courseId)
 
-      course?.tasks.push({
+      course?.tasks.unshift({
         name: newTaskTemplate.name,
         deadline: newTaskTemplate.deadline,
         isRequired: newTaskTemplate.isRequired,

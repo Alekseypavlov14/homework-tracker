@@ -24,7 +24,6 @@ export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
       courseId: courseId
     }))
 
-    // default state
     setTaskName('')
     setTaskDeadline(Date.now())
   }

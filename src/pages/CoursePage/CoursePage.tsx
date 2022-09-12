@@ -6,6 +6,7 @@ import { TaskFactory } from '../../components/TaskFactory/TaskFactory'
 import { colorDefaultSelector, colorsSelector } from '../../store/slices/colors/colorsSlice'
 import { coursesSelector } from '../../store/slices/courses/coursesSlice'
 import { Course } from '../../types/Course.interface'
+import { Task as TaskType } from '../../types/Task.interface'
 import { getColorById } from '../../utils/getColorById/getColorById'
 import styles from './CoursePage.module.css'
 
@@ -32,6 +33,16 @@ export const CoursePage: FC<CoursePageProps> = () => {
     coursePageRef.current?.style.setProperty('--color', color)
   }, [colors, defaultColor, courses, navigate, id])
 
+  function orderTasks(tasks: TaskType[] | undefined) {
+    if (!tasks) return []
+
+    const notDoneTasks = tasks.filter(task => !task.done)
+    const doneTasks = tasks.filter(task => task.done)
+
+    const resultTasksArray = notDoneTasks.concat(doneTasks)
+    return resultTasksArray
+  }
+
   return (
     <div className={styles.CoursePage} ref={coursePageRef}>
       <div className={styles.CourseHeader}>
@@ -39,7 +50,7 @@ export const CoursePage: FC<CoursePageProps> = () => {
       </div>
 
       <div className={styles.Tasks}>
-        {course?.tasks.map(task => (
+        {orderTasks(course?.tasks).map(task => (
           <div 
             className={styles.TaskContainer}
             key={task.id}
