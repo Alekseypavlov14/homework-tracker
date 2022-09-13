@@ -33,7 +33,7 @@ export const TaskList: FC<TaskListProps> = () => {
               isRequired={task.isRequired}
               done={task.done}
               id={task.id}
-              key={`${task.courseId}.${task.id}`}
+              key={`${task.courseId}-${task.id}`}
             />
           </div>
         ))}
