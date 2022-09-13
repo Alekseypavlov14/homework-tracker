@@ -1,7 +1,7 @@
 export namespace Course {
   export interface Create {
     name: string
-    zoomLink: string | null
+    zoomLink: string
     colorId: number
   }
   export interface Delete {

@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { Course } from "../../../types/Course.interface"
 import { Task } from './Task.Actions'
 import { Course as CourseActions } from './Course.Actions' 
+import { ZoomLink } from './ZoomLink.Actions'
 
 function saveToLocalStorage(state: Course[]) {
   localStorage.setItem('courses', JSON.stringify(state))
@@ -80,6 +81,14 @@ const coursesSlice = createSlice({
       state.splice(state.indexOf(course), 1)
 
       saveToLocalStorage(state)
+    },
+    updateZoomLink(state, action: PayloadAction<ZoomLink.Update>) {
+      const { id, zoomLink } = action.payload
+
+      const course = state.find(course => course.id === id)
+      if (!course) return
+      
+      course.zoomLink = zoomLink
     }
   }
 })
