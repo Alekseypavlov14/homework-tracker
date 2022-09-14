@@ -23,11 +23,14 @@ export const TaskList: FC<TaskListProps> = () => {
 
       <div className={styles.Tasks}>
         {coursesWithActiveTasks.map(course => (
-          <div className={styles.TaskSection}>
+          <div className={styles.TaskSection} key={course.id}>
             <div className={styles.TaskCourseName}>{course.name}</div>
 
             {course.tasks.filter(taskActiveFilterFunc).map(task => (
-              <div className={styles.TaskContainer}>
+              <div 
+                key={`${task.courseId}-${task.id}`}
+                className={styles.TaskContainer}
+              >
                 <Task
                   name={task.name}
                   deadline={task.deadline}
