@@ -6,18 +6,22 @@
 .Tasks {
   width: 100%;
   margin-top: 10px;
-}
-
-.TaskContainer {
-  width: 100%;
   padding: 10px;
 }
 
-.TaskContainer:not(:last-child) {
-  margin-bottom: 10px;
+.TaskSection:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 .TaskCourseName {
   font-size: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.TaskContainer {
+  width: 100%;
+}
+
+.TaskContainer:not(:last-child) {
+  margin-bottom: 10px;
 }
