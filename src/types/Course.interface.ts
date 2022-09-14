@@ -5,5 +5,5 @@ export interface Course {
   id: number
   colorId: number
   tasks: Task[]
-  zoomLink: string | null
+  zoomLink: string
 }

@@ -9,7 +9,7 @@ interface NewCourseProps {}
 
 export const NewCourse: FC<NewCourseProps> = () => {
   const [courseName, setCourseName] = useState<string>('')
-  const [zoomLink, setZoomLink] = useState<string | null>(null)
+  const [zoomLink, setZoomLink] = useState<string>('')
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
