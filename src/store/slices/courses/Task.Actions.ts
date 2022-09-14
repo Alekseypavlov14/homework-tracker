@@ -1,18 +1,9 @@
+import { Task as TaskType } from './../../../types/Task.interface'
+
 export namespace Task {
-  export interface Create {
-    name: string
-    deadline: number
-    isRequired: boolean,
-    courseId: number
-  }
+  export type Create = Pick<TaskType, 'name' | 'deadline' | 'isRequired' | 'courseId'>
 
-  export interface Toggle {
-    courseId: number
-    id: number
-  }
+  export type Toggle = Pick<TaskType, 'courseId' | 'id'>
 
-  export interface Delete {
-    courseId: number
-    id: number
-  }
+  export type Delete = Pick<TaskType, 'courseId' | 'id'>
 }

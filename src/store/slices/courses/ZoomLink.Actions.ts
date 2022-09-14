@@ -1,6 +1,5 @@
+import { Course as CourseType } from './../../../types/Course.interface'
+
 export namespace ZoomLink {
-  export interface Update {
-    id: number
-    zoomLink: string
-  }
+  export type Update = Pick<CourseType, 'id' | 'zoomLink'>
 }
