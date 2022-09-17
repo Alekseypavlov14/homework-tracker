@@ -50,7 +50,7 @@ export const CourseSettings: FC<CourseSettingsProps> = () => {
           </div>
           <button 
             className={styles.CourseActionButton}
-            onClick={deleteCourseHandler}
+            onClick={() => {}}
           >
             Update
           </button>
