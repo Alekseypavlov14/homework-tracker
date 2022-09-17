@@ -99,6 +99,7 @@ export const {
   toggleTask, 
   deleteTask, 
   createCourse,
-  deleteCourse 
+  deleteCourse,
+  updateZoomLink
 } = coursesSlice.actions
 export const coursesSelector = (state: AppState) => state.courses
