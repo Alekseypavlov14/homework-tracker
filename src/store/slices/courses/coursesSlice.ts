@@ -4,6 +4,7 @@ import { Course } from "../../../types/Course.interface"
 import { Task } from './Task.Actions'
 import { Course as CourseActions } from './Course.Actions' 
 import { ZoomLink } from './ZoomLink.Actions'
+import { max } from './../../../utils/max/max'
 
 function saveToLocalStorage(state: Course[]) {
   localStorage.setItem('courses', JSON.stringify(state))
@@ -57,16 +58,13 @@ const coursesSlice = createSlice({
 
       const ids = state.map(course => course.id)
 
-      let max = 0
-      for (let i = 0; i < ids.length; i++) {
-        if (ids[i] > max) max = ids[i]
-      }
+      const maxId = max(ids)
 
       state.unshift({
         name: course.name,
         colorId: course.colorId,
         zoomLink: course.zoomLink,
-        id: max + 1,
+        id: maxId + 1,
         tasks: []
       })
 
