@@ -54,6 +54,8 @@ export const CourseSettings: FC<CourseSettingsProps> = () => {
           </button>
         </div>
       </div>
+
+      {course?.zoomLink}
     </div>
   )
 }
