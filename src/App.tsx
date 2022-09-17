@@ -6,7 +6,6 @@ import { CourseSettings } from "./pages/CourseSettings/CourseSettings"
 import { TaskList } from "./pages/TaskList/TaskList"
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage"
 import './App.css'
-import { InteractionManager } from "./components/InteractionManager/InteractionManager"
 
 export function App() {
   return (
@@ -19,7 +18,6 @@ export function App() {
         <Route path='/courses/new' element={<NewCourse />} />
         <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>
-      <InteractionManager />
     </div>
   )
 }

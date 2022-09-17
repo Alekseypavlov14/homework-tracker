@@ -1,17 +1,20 @@
 import { FC, useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
 import { colorDefaultSelector, colorsSelector } from '../../store/slices/colors/colorsSlice'
 import { coursesSelector, deleteCourse } from '../../store/slices/courses/coursesSlice'
-import { Course } from '../../types/Course.interface'
-import { getColorById } from '../../utils/getColorById/getColorById'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
 import { getCourseById } from '../../utils/getCourseById/getCourseById'
+import { getColorById } from '../../utils/getColorById/getColorById'
+import { ConfirmPopup } from '../../components/ConfirmPopup/ConfirmPopup'
+import { Course } from '../../types/Course.interface'
+import { useInteraction } from '../../hooks/useInteraction'
 import styles from './CourseSettings.module.css'
 
 interface CourseSettingsProps {}
 
 export const CourseSettings: FC<CourseSettingsProps> = () => {
   const [course, setCourse] = useState<Course | null>(null)
+  const [interaction, pushInteraction] = useInteraction()
   const CourseSettingsRef = useRef<HTMLDivElement>(null)
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -33,8 +36,13 @@ export const CourseSettings: FC<CourseSettingsProps> = () => {
   }, [colors, defaultColor, courses, navigate, id])
 
   function deleteCourseHandler() {
-    dispatch(deleteCourse({ id: Number(id) }))
-    navigate('/')
+    pushInteraction({
+      message: 'Are you sure you want to delete the course?',
+      confirm() {
+        dispatch(deleteCourse({ id: Number(id) }))
+        navigate('/')
+      }
+    })
   }
 
   return (
@@ -69,6 +77,14 @@ export const CourseSettings: FC<CourseSettingsProps> = () => {
           </button>
         </div>
       </div>
+
+      {interaction && (
+        <ConfirmPopup 
+          message={interaction.message}
+          confirm={interaction.confirm}
+          cancel={interaction.cancel}
+        />
+      )}
     </div>
   )
 }
