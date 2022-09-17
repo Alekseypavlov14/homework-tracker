@@ -29,16 +29,42 @@
   justify-content: space-between;
 }
 
+.CourseAction:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 .CourseActionName {
   font-size: 20px;
-  color: red;
+  color: #333;
 }
 
 .CourseActionButton {
   padding: 5px 10px;
-  background-color: red;
+  background-color: #fff;
   border: none;
-  color: #fff;
+  color: #333;
+  border: 1px solid #555;
   font-size: 20px;
   border-radius: 5px;
+}
+
+.DangerActions {
+  margin-top: 40px;
+}
+
+.DangerActions .Title {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: red;
+  font-weight: 600;
+}
+
+.DangerActions .CourseActionName {
+  color: red;
+}
+
+.DangerActions .CourseActionButton {
+  background-color: red;
+  color: #fff;
+  border: none;
 }

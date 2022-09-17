@@ -45,6 +45,21 @@ export const CourseSettings: FC<CourseSettingsProps> = () => {
 
       <div className={styles.CourseActions}>
         <div className={styles.CourseAction}>
+          <div className={styles.CourseActionName}>
+            Zoom Link: {course?.zoomLink}
+          </div>
+          <button 
+            className={styles.CourseActionButton}
+            onClick={deleteCourseHandler}
+          >
+            Update
+          </button>
+        </div>
+      </div>
+
+      <div className={styles.DangerActions}>
+        <div className={styles.Title}>Danger zone:</div>
+        <div className={styles.CourseAction}>
           <div className={styles.CourseActionName}>Delete this course</div>
           <button 
             className={styles.CourseActionButton}

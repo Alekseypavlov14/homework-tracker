@@ -45,10 +45,7 @@ export const Task: FC<TaskProps> = ({
       </div>
 
       <div className={styles.TaskButtonBlock}>
-        <button 
-          className={styles.TaskButton}
-          // onClick={toggleHandler}
-        >
+        <button className={styles.TaskButton}>
           <FontAwesomeIcon icon={buttonIcon} />
         </button>
       </div>
