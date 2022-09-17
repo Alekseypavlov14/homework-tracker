@@ -1,16 +1,16 @@
 import { FC, useState, useEffect, useRef } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams, useNavigate, Link } from 'react-router-dom'
-import { Task } from '../../components/Task/Task'
-import { TaskFactory } from '../../components/TaskFactory/TaskFactory'
 import { colorDefaultSelector, colorsSelector } from '../../store/slices/colors/colorsSlice'
-import { coursesSelector } from '../../store/slices/courses/coursesSlice'
-import { Course } from '../../types/Course.interface'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { Task as TaskType } from '../../types/Task.interface'
-import { getColorById } from '../../utils/getColorById/getColorById'
-import { getCourseById } from '../../utils/getCourseById/getCourseById'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { coursesSelector } from '../../store/slices/courses/coursesSlice'
+import { getCourseById } from '../../utils/getCourseById/getCourseById'
+import { getColorById } from '../../utils/getColorById/getColorById'
+import { TaskPalette } from '../../components/TaskPalette/TaskPalette'
+import { useSelector } from 'react-redux'
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
+import { Course } from '../../types/Course.interface'
+import { Task } from '../../components/Task/Task'
 import styles from './CoursePage.module.css'
 
 interface CoursePageProps {}
@@ -76,9 +76,7 @@ export const CoursePage: FC<CoursePageProps> = () => {
         ))}
       </div>
 
-      <div className={styles.NewTask}>
-        <TaskFactory courseId={course?.id!} />
-      </div>
+      <TaskPalette courseId={course?.id!} />
     </div>
   )
 }

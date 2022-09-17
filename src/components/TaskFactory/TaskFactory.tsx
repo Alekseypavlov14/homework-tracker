@@ -6,9 +6,10 @@ import styles from './TaskFactory.module.css'
 
 interface TaskFactoryProps {
   courseId: number
+  closePalette: () => void
 }
 
-export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
+export const TaskFactory: FC<TaskFactoryProps> = ({ courseId, closePalette }) => {
   const [taskName, setTaskName] = useState('')
   const [taskDeadline, setTaskDeadline] = useState<number>(Date.now())
   const dispatch = useDispatch()
@@ -26,6 +27,8 @@ export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
 
     setTaskName('')
     setTaskDeadline(Date.now())
+
+    closePalette()
   }
 
   function updateName(e: ChangeEvent<HTMLInputElement>) {
@@ -46,6 +49,10 @@ export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
   return (
     <div className={styles.TaskFactory}>
       <div className={styles.TaskName}>
+        <span className={styles.Label}>
+          Name
+        </span>
+
         <input
           className={styles.TaskNameInput}
           placeholder="Task name ..."
@@ -54,7 +61,12 @@ export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
           type="text" 
         />
       </div>
+
       <div className={styles.TaskDeadline}>
+        <span className={styles.Label}>
+          Deadline
+        </span>
+
         <input
           className={styles.TaskDeadlineInput}
           onChange={updateDeadline}
@@ -62,11 +74,9 @@ export const TaskFactory: FC<TaskFactoryProps> = ({ courseId }) => {
           type="date"
         />
       </div>
-      <button 
-        className={styles.TaskButton}
-        onClick={addTask}
-      >
-        +
+
+      <button className={styles.TaskButton} onClick={addTask}>
+        Add
       </button>
     </div>
   )
