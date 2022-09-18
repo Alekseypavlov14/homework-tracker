@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import { useDispatch } from 'react-redux'
-import { toggleTask } from '../../store/slices/courses/coursesSlice'
+import { deleteTask, toggleTask } from '../../store/slices/courses/coursesSlice'
 import { Task as TaskType } from './../../types/Task.interface'
 import { formatDate } from '../../utils/formatDate/formatDate'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import cn from 'classnames'
 import styles from './Task.module.css'
 
@@ -28,7 +28,9 @@ export const Task: FC<TaskProps> = ({
     dispatch(toggleTask({ courseId, id }))
   }
 
-  const buttonIcon = done ? faXmark : faCheck
+  const deleteHandler = () => {
+    dispatch(deleteTask({ courseId, id }))
+  }
 
   return (
     <div 
@@ -45,8 +47,14 @@ export const Task: FC<TaskProps> = ({
       </div>
 
       <div className={styles.TaskButtonBlock}>
-        <button className={styles.TaskButton}>
-          <FontAwesomeIcon icon={buttonIcon} />
+        <button 
+          className={styles.TaskButton}
+          onClick={deleteHandler}
+        >
+          <FontAwesomeIcon 
+            className={styles.TaskButtonIcon} 
+            icon={faTrashCan} 
+          />
         </button>
       </div>
     </div>

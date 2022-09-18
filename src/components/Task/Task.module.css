@@ -31,3 +31,7 @@
 .TaskButton:active {
   background-color: #ccc;
 }
+
+.TaskButtonIcon {
+  font-size: 16px;
+}
