@@ -1,0 +1,47 @@
+.CourseAction,
+.DangerCourseAction {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.CourseActionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CourseActionName {
+  font-size: 20px;
+  color: #333;
+}
+
+.CourseActionButton {
+  padding: 5px 10px;
+  background-color: #fff;
+  border: none;
+  color: #333;
+  border: 1px solid #555;
+  font-size: 20px;
+  border-radius: 5px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.CourseActionContent {
+  width: 100%;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.DangerCourseAction .CourseActionName {
+  color: red;
+}
+
+.DangerCourseAction .CourseActionButton {
+  background-color: red;
+  color: #fff;
+  border: none;
+}
