@@ -87,6 +87,8 @@ const coursesSlice = createSlice({
       if (!course) return
       
       course.zoomLink = zoomLink
+
+      saveToLocalStorage(state)
     }
   }
 })

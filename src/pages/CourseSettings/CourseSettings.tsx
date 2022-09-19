@@ -40,7 +40,10 @@ export const CourseSettings: FC<CourseSettingsProps> = () => {
       </div>
 
       <div className={styles.CourseActions}>
-        <ZoomLinkAction link={course?.zoomLink || ''} />
+        <ZoomLinkAction 
+          link={course?.zoomLink || ''} 
+          id={course?.id || 0}
+        />
       </div>
 
       <div className={styles.DangerActions}>
