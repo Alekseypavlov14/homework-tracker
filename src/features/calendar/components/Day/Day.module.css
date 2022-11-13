@@ -22,3 +22,8 @@
   background-color: rgb(17, 194, 253);
   color: #fff;
 }
+
+.hasDeadlineTask {
+  color: #fff;
+  background-color: rgb(252, 14, 6);
+}
