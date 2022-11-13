@@ -1,6 +1,6 @@
 .WeekDay {
   font-weight: 600;
-  color: var(--dark-text-color);
+  color: #333;
   text-align: center;
   user-select: none;
 }

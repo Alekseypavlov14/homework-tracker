@@ -3,6 +3,13 @@
   height: 100%;
 }
 
+.Calendar {
+  padding-top: 20px;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 300px;
+}
+
 .Tasks {
   width: 100%;
   margin-top: 10px;

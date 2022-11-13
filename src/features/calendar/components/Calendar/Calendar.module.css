@@ -21,10 +21,11 @@
   border: none;
   outline: none;
   background-color: #fff;
-  color: var(--grey-200);
+  color: #222;
   cursor: pointer;
   user-select: none;
-  padding: 5px;
+  padding: 10px;
+  font-weight: 600;
 }
 
 .CalendarWeekDays { 
