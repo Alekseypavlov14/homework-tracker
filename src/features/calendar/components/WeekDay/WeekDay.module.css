@@ -1,0 +1,6 @@
+.WeekDay {
+  font-weight: 600;
+  color: var(--dark-text-color);
+  text-align: center;
+  user-select: none;
+}

@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { Course } from '../../components/Course/Course'
+import { Course } from '../../features/courses/components/Course/Course'
 import { Header } from '../../components/Header/Header'
-import { coursesSelector } from '../../store/slices/courses/coursesSlice'
+import { coursesSelector } from './../../features/courses/slice/courses.slice'
 import styles from './Home.module.css'
 
 interface HomeProps {}

@@ -1,0 +1,43 @@
+.Calendar {
+  --gap: 10px;
+}
+
+.Calendar {
+  width: 100%;
+  max-width: 300px;
+}
+
+.CalendarState {
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.CalendarState > button {
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: var(--grey-200);
+  cursor: pointer;
+  user-select: none;
+  padding: 5px;
+}
+
+.CalendarWeekDays { 
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--gap);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.CalendarBody {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--gap);
+  width: 100%;
+}

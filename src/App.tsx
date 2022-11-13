@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router"
 import { Home } from "./pages/Home/Home"
-import { CoursePage } from "./pages/CoursePage/CoursePage"
-import { NewCourse } from "./pages/NewCourse/NewCourse"
-import { CourseSettings } from "./pages/CourseSettings/CourseSettings"
+import { CoursePage } from "./features/courses/pages/CoursePage/CoursePage"
+import { NewCourse } from "./features/courses/pages/NewCourse/NewCourse"
+import { CourseSettings } from "./features/courses/pages/CourseSettings/CourseSettings"
 import { TaskList } from "./pages/TaskList/TaskList"
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage"
 import './App.css'

@@ -1,10 +1,11 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { Header } from '../../components/Header/Header'
-import { Task } from '../../components/Task/Task'
-import { Task as TaskType } from './../../types/Task.interface'
-import { coursesSelector } from '../../store/slices/courses/coursesSlice'
+import { Task } from '../../features/courses/components/Task/Task'
+import { Task as TaskType } from './../../features/courses/entities/task.interface'
+import { coursesSelector } from './../../features/courses/slice/courses.slice'
 import styles from './TaskList.module.css'
+import { Calendar } from '../../features/calendar/components/Calendar/Calendar'
 
 interface TaskListProps {}
 
@@ -20,6 +21,8 @@ export const TaskList: FC<TaskListProps> = () => {
   return (
     <div className={styles.TaskList}>
       <Header />
+
+      <Calendar />
 
       <div className={styles.Tasks}>
         {coursesWithActiveTasks.map(course => (

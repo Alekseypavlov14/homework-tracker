@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { coursesReducer } from './slices/courses/coursesSlice'
-import { colorsReducer } from './slices/colors/colorsSlice'
+import { coursesReducer } from '../features/courses/slice/courses.slice'
+import { colorsReducer } from '../features/colors/slice/colors.slice'
 
 export const store = configureStore({
   reducer: {
