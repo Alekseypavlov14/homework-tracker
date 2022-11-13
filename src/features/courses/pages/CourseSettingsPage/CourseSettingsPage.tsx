@@ -1,18 +1,18 @@
 import { FC, useEffect, useRef, useState } from 'react'
-import { colorDefaultSelector, colorsSelector } from './../../../colors/slice/colors.slice'
+import { colorDefaultSelector, colorsSelector } from '../../../colors/slice/colors.slice'
 import { useNavigate, useParams } from 'react-router-dom'
-import { DeleteCourseAction } from './../../components/DeleteCourseAction/DeleteCourseAction'
-import { coursesSelector } from './../../slice/courses.slice'
-import { ZoomLinkAction } from './../../components/ZoomLinkAction/ZoomLinkAction'
-import { getCourseById } from './../../utils/getCourseById'
-import { getColorById } from './../../../colors/utils/getColorById'
+import { DeleteCourseAction } from '../../components/DeleteCourseAction/DeleteCourseAction'
+import { coursesSelector } from '../../slice/courses.slice'
+import { ZoomLinkAction } from '../../components/ZoomLinkAction/ZoomLinkAction'
+import { getCourseById } from '../../utils/getCourseById'
+import { getColorById } from '../../../colors/utils/getColorById'
 import { useSelector } from 'react-redux'
-import { Course } from './../../entities/course.interface'
-import styles from './CourseSettings.module.css'
+import { Course } from '../../entities/course.interface'
+import styles from './CourseSettingsPage.module.css'
 
-interface CourseSettingsProps {}
+interface CourseSettingsPageProps {}
 
-export const CourseSettings: FC<CourseSettingsProps> = () => {
+export const CourseSettingsPage: FC<CourseSettingsPageProps> = () => {
   const [course, setCourse] = useState<Course | null>(null)
   const CourseSettingsRef = useRef<HTMLDivElement>(null)
   
@@ -34,7 +34,7 @@ export const CourseSettings: FC<CourseSettingsProps> = () => {
   }, [colors, defaultColor, courses, navigate, id])
 
   return (
-    <div className={styles.CourseSettings} ref={CourseSettingsRef}>
+    <div className={styles.CourseSettingsPage} ref={CourseSettingsRef}>
       <div className={styles.CourseHeader}>
         {course?.name}
       </div>
