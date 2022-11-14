@@ -6,9 +6,9 @@ import { Task as TaskType } from './../../features/courses/entities/task.interfa
 import { coursesSelector } from './../../features/courses/slice/courses.slice'
 import { Calendar } from '../../features/calendar/components/Calendar/Calendar'
 import type { Date } from '../../features/calendar/types/Date'
-import styles from './TaskList.module.css'
 import { parseDate } from '../../features/calendar/utils/parseDate'
 import { Title } from '../../components/Title/Title'
+import styles from './TaskList.module.css'
 
 interface TaskListProps {}
 
@@ -35,7 +35,9 @@ export const TaskList: FC<TaskListProps> = () => {
       </div>
 
       <div className={styles.Tasks}>
-        <Title bold>All tasks:</Title>
+        {Boolean(coursesWithActiveTasks.length) && (
+          <Title bold>All tasks:</Title>
+        )}
         
         {coursesWithActiveTasks.map(course => (
           <div className={styles.TaskSection} key={course.id}>
