@@ -5,6 +5,7 @@
 .Calendar {
   width: 100%;
   max-width: 300px;
+  margin: 0 auto;
 }
 
 .CalendarState {
@@ -41,4 +42,14 @@
   grid-template-columns: repeat(7, 1fr);
   gap: var(--gap);
   width: 100%;
+}
+
+.Tasks { 
+  padding: 10px;
+  width: 100%;
+}
+
+.TaskTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
