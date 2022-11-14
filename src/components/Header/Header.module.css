@@ -3,3 +3,8 @@
   padding: 20px;
   border-bottom: 1px solid #ccc;
 }
+
+.Title {
+  font-weight: 400;
+  font-size: 24px;
+}

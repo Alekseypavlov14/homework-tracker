@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { Title } from '../Title/Title'
 import styles from './Header.module.css'
 
 interface HeaderProps {}
@@ -7,9 +6,9 @@ interface HeaderProps {}
 export const Header: FC<HeaderProps> = () => {
   return (
     <div className={styles.Header}>
-      <Title>
+      <div className={styles.Title}>
         HomeWork Tracker
-      </Title>
+      </div>
     </div>
   )
 }

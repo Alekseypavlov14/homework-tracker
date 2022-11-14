@@ -7,7 +7,7 @@ import { Task } from '../../../courses/components/Task/Task'
 import { Date } from '../../types/Date'
 import { Task as TaskType } from './../../../courses/entities/task.interface'
 // utils
-import { compareDates } from '../../utils/compareDates'
+import { areDatesEqual } from '../../utils/areDatesEqual'
 import { parseDate } from '../../utils/parseDate'
 import styles from './TasksOfDay.module.css'
 import { Title } from '../../../../components/Title/Title'
@@ -23,7 +23,7 @@ export const TasksOfDay: FC<TasksOfDayProps> = ({ day }) => {
 
   courses.forEach(course => {
     const tasksWithDeadlineToday = course.tasks.filter(task => {
-      return (compareDates(parseDate(task.deadline), day) && !task.done)
+      return (areDatesEqual(parseDate(task.deadline), day) && !task.done)
     })
     tasks.push(...tasksWithDeadlineToday)
   })
@@ -33,7 +33,7 @@ export const TasksOfDay: FC<TasksOfDayProps> = ({ day }) => {
   return (
     <div className={styles.TasksOfDay}>
       <Title>
-        Tasks with deadline today:
+        Tasks with deadline at this day:
       </Title>
 
       <div className={styles.Tasks}>

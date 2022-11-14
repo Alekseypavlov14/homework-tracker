@@ -35,7 +35,7 @@ export const TaskList: FC<TaskListProps> = () => {
       </div>
 
       <div className={styles.Tasks}>
-        <Title>All tasks:</Title>
+        <Title bold>All tasks:</Title>
         
         {coursesWithActiveTasks.map(course => (
           <div className={styles.TaskSection} key={course.id}>
