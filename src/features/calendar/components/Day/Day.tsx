@@ -8,9 +8,10 @@ import cn from 'classnames'
 
 interface DayProps {
   date: Date
+  onClick: () => void
 }
 
-export const Day: FC<DayProps> = ({ date }) => {
+export const Day: FC<DayProps> = ({ date, onClick }) => {
   const classNames: string[] = []
 
   const today = parseDate(Date.now())
@@ -31,7 +32,10 @@ export const Day: FC<DayProps> = ({ date }) => {
   )
 
   return (
-    <div className={className}>
+    <div 
+      className={className}
+      onClick={onClick}
+    >
       {date.day}
     </div>
   )
