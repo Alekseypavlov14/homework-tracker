@@ -3,7 +3,7 @@ import { parseDate } from './../../utils/parseDate'
 import { areDatesEqual } from '../../utils/areDatesEqual'
 import { useActiveTasks } from '../../../courses/hooks/useActiveTasks'
 import type { Date } from './../../types/Date'
-import { compareDates } from '../../utils/compareDates'
+import { isDateMissed } from '../../utils/isDateMissed'
 import styles from './Day.module.css'
 import cn from 'classnames'
 
@@ -29,7 +29,7 @@ export const Day: FC<DayProps> = ({ date, onClick }) => {
       classNames.push(styles.hasDeadlineTask)
 
       // if task is missed
-      if (compareDates(taskDeadline, today) < 0) {
+      if (isDateMissed(taskDeadline)) {
         classNames.push(styles.Missed)
       }
     }

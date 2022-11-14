@@ -36,3 +36,7 @@
 .TaskButtonIcon {
   font-size: 16px;
 }
+
+.Missed {
+  color: rgb(167, 1, 1);
+}
