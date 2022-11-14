@@ -36,7 +36,7 @@ export const Task: FC<TaskProps> = ({
 
   function isTaskMissed(deadline: number) {
     const deadlineDate = parseDate(deadline)
-    return isDateMissed(deadlineDate)
+    return isDateMissed(deadlineDate) && !done
   }
 
   const deadlineClassNames = cn(
