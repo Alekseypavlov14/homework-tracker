@@ -2,6 +2,6 @@
   padding: 10px;
 }
 
-.TasksOfDay:not(:last-child) {
+.Task:not(:last-child) {
   margin-bottom: 10px;
 }

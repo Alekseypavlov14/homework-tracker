@@ -38,14 +38,16 @@ export const TasksOfDay: FC<TasksOfDayProps> = ({ day }) => {
 
       <div className={styles.Tasks}>
         {tasks.map(task => (
-          <Task 
-            name={task.name}
-            deadline={task.deadline}
-            isRequired={task.isRequired}
-            id={task.id}
-            done={task.done}
-            courseId={task.courseId}
-          />
+          <div className={styles.Task}>
+            <Task 
+              name={task.name}
+              deadline={task.deadline}
+              isRequired={task.isRequired}
+              id={task.id}
+              done={task.done}
+              courseId={task.courseId}
+            />
+          </div>
         ))}
       </div>
     </div>
