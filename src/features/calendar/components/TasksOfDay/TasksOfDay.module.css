@@ -2,6 +2,15 @@
   padding: 10px;
 }
 
+.CourseSection:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.CourseName {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 .Task:not(:last-child) {
   margin-bottom: 10px;
 }

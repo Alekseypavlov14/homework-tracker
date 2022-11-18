@@ -1,4 +1,4 @@
-.TaskList {
+.TaskListPage {
   width: 100%;
   height: 100%;
 }
@@ -16,7 +16,7 @@
 }
 
 .TaskSection:not(:last-child) {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .TaskCourseName {
