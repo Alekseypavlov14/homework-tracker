@@ -38,8 +38,8 @@ export const Calendar: FC<CalendarProps> = ({ focusedDate, setFocusedDate }) => 
 
   const daysArray = getDaysArrayFromMonth(currentMonth)
 
-  const prevDays = getPrevDaysRange(month)
-  const nextDays = getNextDaysRange(month)
+  const prevDays = getPrevDaysRange(currentMonth)
+  const nextDays = getNextDaysRange(currentMonth)
 
   return (
     <>
